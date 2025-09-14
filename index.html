@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f7f7; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .container { width: 100%; max-width: 400px; }
+    .header { text-align: center; }
+    .header img { width: 100%; height: auto; border-radius: 8px; }
+    .box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center; margin-top: 15px; }
+    input { padding: 10px; width: 90%; margin: 10px 0; }
+    button { padding: 10px; width: 100%; background: #3f51b5; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 🔹 Header with Banner -->
+    <div class="header">
+      <img src="banner.jpg" alt="Banner">
+    </div>
+
+    <!-- 🔹 Login Box -->
+    <div class="box">
+      <h3>Welcome to Assets Portal</h3>
+      <input type="text" id="uid" placeholder="Enter UID">
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+
+  <script>
+    // Allowed UID (change this to your UID)
+    const allowedUID = "123456";
+
+    function login() {
+      const uid = document.getElementById("uid").value.trim();
+      if(uid === "") {
+        alert("Please enter UID");
+        return;
+      }
+      if(uid === allowedUID) {
+        localStorage.setItem("uid", uid);
+        window.location.href = "assets.html";
+      } else {
+        alert("Invalid UID!");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assets</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f7f7f7;
+    }
+    .top-bar {
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      text-align: center;
+    }
+    .site-title {
+      display: block;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .url {
+      font-size: 12px;
+      color: #ccc;
+    }
+    .section-title {
+      text-align: center;
+      margin: 10px 0;
+      font-weight: normal;
+    }
+    .asset-box {
+      background: #fff;
+      margin: 0 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .all-assets {
+      background: #3f51b5;
+      color: white;
+      padding: 15px;
+      position: relative;
+    }
+    .label {
+      margin: 0;
+      font-size: 14px;
+    }
+    .amount-main {
+      font-size: 26px;
+      margin: 5px 0;
+    }
+    .amount-sub {
+      font-size: 14px;
+    }
+    .eye-icon {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      cursor: pointer;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .buttons div {
+      font-size: 14px;
+      color: black;
+      cursor: pointer;
+    }
+    .buttons i {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+    .wallet-list {
+      margin: 15px 10px;
+    }
+    .wallet-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+    .wallet-item img {
+      width: 24px;
+      height: 24px;
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      background: #fff;
+      border-top: 1px solid #ccc;
+      justify-content: space-around;
+      padding: 5px 0;
+      font-size: 12px;
+      text-align: center;
+    }
+    .bottom-nav .active {
+      color: #3f51b5;
+    }
+  </style>
+  <script>
+    function toggleVisibility() {
+      const amount = document.getElementById("totalAmount");
+      const rupee = document.getElementById("rupeeValue");
+      const eye = document.getElementById("eyeIcon");
+
+      if (amount.style.visibility === "hidden") {
+        amount.style.visibility = "visible";
+        rupee.style.visibility = "visible";
+        eye.innerText = "visibility";
+      } else {
+        amount.style.visibility = "hidden";
+        rupee.style.visibility = "hidden";
+        eye.innerText = "visibility_off";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+   <span class="site-title">Hi, UID:3442667 <span id="userUID"></span></span>
+   <span class="url">deltaexchangeindia.com</span>
+      </div>
+
+  <h2 class="section-title">Assets</h2>
+
+  <div class="asset-box">
+    <div class="all-assets">
+      <p class="label">All assets</p>
+      <p class="amount-main">₹ <span id="totalAmount">699469.89</span></p>
+      <p class="amount-sub">≈ <span id="rupeeValue">699469.8880</span> ₹</p>
+      <span class="material-icons eye-icon" id="eyeIcon" onclick="toggleVisibility()">visibility</span>
+    </div>
+    <div class="buttons">
+      <div>
+        <i class="material-icons"></i>
+        Recharge
+      </div>
+      <div>
+        <i class="material-icons"></i>
+        Withdraw
+      </div>
+      <div>
+        <i class="material-icons"></i>
+        Exchange
+      </div>
+    </div>
+  </div>
+
+<div class="wallet-table" style="display: flex; justify-content: space-around; margin: 20px 10px; background: #fff; border-radius: 10px; padding: 15px 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+
+  <!-- Column 1:  -->
+<div style="flex: 1; text-align: left; padding-left: 15px;">
+  
+
+  <div style="display: flex; align-items: center; margin: 10px 0;">
+    <img src="https://img.icons8.com/color/48/rupee.png" alt="INR" style="width: 24px; height: 24px; margin-right: 8px;" />
+    <span>INR</span>
+  </div>
+
+  <div style="display: flex; align-items: center; margin: 10px 0;">
+    <img src="https://img.icons8.com/color/48/tether--v2.png" alt="USDT" style="width: 24px; height: 24px; margin-right: 8px;" />
+    <span>USDT</span>
+  </div>
+
+  <div style="display: flex; align-items: center; margin: 10px 0;">
+    <img src="https://img.icons8.com/color/48/bitcoin--v1.png" alt="BTC" style="width: 24px; height: 24px; margin-right: 8px;" />
+    <span>BTC</span>
+  </div>
+
+  <div style="display: flex; align-items: center; margin: 10px 0;">
+    <img src="https://img.icons8.com/color/48/ethereum.png" alt="ETH" style="width: 24px; height: 24px; margin-right: 8px;" />
+    <span>ETH / BTG</span>
+  </div>
+</div>
+
+
+  <!-- Column 2:  -->
+  <div style="flex: 1; text-align: center;">
+    
+    <div style="margin: 10px 0;">699469.8880 Available</div>
+    <div style="margin: 10px 0;">0 Available</div>
+    <div style="margin: 10px 0;">0 Available</div>
+    <div style="margin: 10px 0;">0 Available</div>
+  </div>
+
+  <!-- Column 3:  -->
+  <div style="flex: 1; text-align: center;">
+  
+    <div style="margin: 10px 0;">0 Freeze</div>
+    <div style="margin: 10px 0;">0 Freeze</div>
+    <div style="margin: 10px 0;">0 Freeze</div>
+    <div style="margin: 10px 0;">0 Freeze</div>
+  </div>
+
+</div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <div>🏠<br/>Home</div>
+    <div>📊<br/>Markets</div>
+    <div>🆕<br/>New</div>
+    <div class="active">💼<br/>Assets</div>
+    <div>👤<br/>Account</div>
+  </div>
+</body>
+</html>
