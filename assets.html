@@ -128,6 +128,13 @@
         eye.innerText = "visibility_off";
       }
     }
+    function notAuthorized() {
+    alert("You are not Authorized");
+  }
+
+  function goAssets() {
+    window.location.href = "assets.html"; // reload assets page
+  }
   </script>
 </head>
 <body>
@@ -211,11 +218,11 @@
   </div>
 
   <div class="bottom-nav">
-    <div>🏠<br/>Home</div>
-    <div>📊<br/>Markets</div>
-    <div>🆕<br/>New</div>
-    <div class="active">💼<br/>Assets</div>
-    <div>👤<br/>Account</div>
+    <div onclick="notAuthorized()">🏠<br/>Home</div>
+    <div onclick="notAuthorized()">📊<br/>Markets</div>
+    <div onclick="notAuthorized()">🆕<br/>New</div>
+    <div class="active" onclick="goAssets()">💼<br/>Assets</div>
+    <div onclick="notAuthorized()">👤<br/>Account</div>
   </div>
 </body>
 </html>
