@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Account</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f7f7f7; }
+
+    /* Top bar */
+    .top-bar { background: #000; color: #fff; padding: 8px; text-align: center; }
+    .site-title { display: block; font-weight: bold; font-size: 18px; }
+    .url { font-size: 12px; color: #ccc; }
+
+    /* Header card */
+    .header-card {
+      background: linear-gradient(135deg, #2d7cf0, #0b4ab7);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    .header-card .avatar {
+      font-size: 60px;
+      background: #fff;
+      color: #2d7cf0;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 10px;
+    }
+    .header-card .phone { font-size: 18px; margin: 5px 0; }
+    .header-card .uid { font-size: 14px; opacity: 0.9; }
+
+    /* Credit rate */
+    .credit {
+      background: #fff;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 14px;
+    }
+    .credit-bar {
+      margin-top: 10px;
+      width: 100%;
+      height: 10px;
+      background: #eee;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .credit-fill {
+      height: 100%;
+      width: 90%; /* default 90% */
+      background: green;
+    }
+
+    /* Menu list */
+    .menu {
+      background: #fff;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+    .menu-item:last-child { border-bottom: none; }
+    .menu-item i {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+
+    /* Bottom nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      display: flex;
+      background: #fff;
+      border-top: 1px solid #ccc;
+      justify-content: space-around;
+      padding: 5px 0;
+      font-size: 12px;
+      text-align: center;
+    }
+    .bottom-nav .active { color: #3f51b5; }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <span class="site-title">Hi</span>
+    <span class="url">delta.coinptoto.com</span>
+  </div>
+
+  <!-- Header card -->
+  <div class="header-card">
+    <div class="avatar">👤</div>
+    <div class="phone">918103834247</div>
+    <div class="uid">UID: 9616282</div>
+  </div>
+
+  <!-- Credit -->
+  <div class="credit">
+    <strong>Your credit rate: <span id="creditRate">90</span></strong>
+    <div class="credit-bar">
+      <div class="credit-fill" id="creditFill"></div>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu">
+    <div class="menu-item" onclick="notAuthorized()">👤 User Profile</div>
+    <div class="menu-item" onclick="notAuthorized()">🛡️ Security</div>
+    <div class="menu-item" onclick="notAuthorized()">💳 Bank card</div>
+    <div class="menu-item" onclick="notAuthorized()">📍 Withdrawal Address</div>
+    <div class="menu-item" onclick="notAuthorized()">👥 Referral</div>
+    <div class="menu-item" onclick="notAuthorized()">📞 Contact Us <span style='font-size:12px;opacity:0.6;margin-left:5px;'>24H Online Customer Service</span></div>
+    <div class="menu-item" onclick="notAuthorized()">🔗 Share to a friend</div>
+  </div>
+
+  <!-- Bottom nav -->
+  <div class="bottom-nav">
+    <div onclick="notAuthorized()">🏠<br/>Home</div>
+    <div onclick="notAuthorized()">📊<br/>Markets</div>
+    <div onclick="notAuthorized()">🆕<br/>New</div>
+    <div onclick="goAssets()">💼<br/>Assets</div>
+    <div class="active" onclick="goAccount()">👤<br/>Account</div>
+  </div>
+
+<script>
+  // Safety check (same UID logic as assets page)
+  const allowedUID = "123456";
+  const uid = localStorage.getItem("uid");
+
+  if (!uid || uid !== allowedUID) {
+    alert("Unauthorized access! Please login first.");
+    window.location.href = "login.html";
+  }
+
+  // Credit rate bar
+  const creditRate = document.getElementById("creditRate").innerText;
+  document.getElementById("creditFill").style.width = creditRate + "%";
+
+  // Functions
+  function notAuthorized() {
+    alert("You are not authorized");
+  }
+  function goAssets() {
+    window.location.href = "assets.html";
+  }
+  function goAccount() {
+    window.location.href = "account.html";
+  }
+</script>
+</body>
+</html>
